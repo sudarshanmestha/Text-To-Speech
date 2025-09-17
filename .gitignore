@@ -1,0 +1,40 @@
+*.mp3
+app - Pronunciation Editor.py
+.tts
+# 🐍 Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.log
+venv/
+tts/
+# 📂 Compiled, cache & system files
+.DS_Store
+Thumbs.db
+
+# 🔄 Streamlit
+#.streamlit/
+
+# 🧪 Temporary or backup files
+*~ 
+*.bak
+*.tmp
+*.swp
+*.swo
+output/
+app - Copy.py
+OWASP 10.txt
+output/
+app - Copy (2).py
+Copies/
+app - Pronunciation Editor.py
+run_tts_app.ps1
+pyproject.toml
+Features to be added.txt
+dev-requirements.txt
+.vscode/
+
+
+
