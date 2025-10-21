@@ -2,7 +2,7 @@ streamlit
 edge-tts
 aiohttp
 certifi
-pydub
+pydub>=0.25.1
 python-docx
 mammoth
 markdown

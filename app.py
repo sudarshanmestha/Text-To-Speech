@@ -18,7 +18,7 @@ import nest_asyncio
 from pydub import AudioSegment
 import aiohttp  
 import ssl
-import certifi  
+import certifi
 
 ssl._create_default_https_context = ssl._create_unverified_context  # Temporary workaround (not recommended for production)
 
@@ -100,11 +100,14 @@ st.markdown(
 
 # Voice and Speed Options
 voice_options = {
-    "English - Female": "en-US-JennyNeural",
-    "English - Male": "en-US-GuyNeural",
-    "Telugu - Male": "te-IN-MohanNeural",
-    "Telugu - Female": "te-IN-ShrutiNeural",
+    "DavisNeural - Male": "en-US-DavisNeural",
+    "MohanNeural - Male": "te-IN-MohanNeural",
+    "ShrutiNeural - Female": "te-IN-ShrutiNeural",
+    "AriaNeural - Female": "en-US-AriaNeural",
+    "SapnaNeural - Female": "kn-IN-SapnaNeural",
+    "GaganNeural - Male": "kn-IN-GaganNeural",
 }
+
 speed_map = {"Fast": "+25%", "Normal": "+0%", "Slow": "-25%"}
 rate_map = {"Fast": 1.25, "Normal": 1.0, "Slow": 0.75}
 
@@ -115,10 +118,11 @@ voice = st.sidebar.selectbox("Select Voice", list(voice_options.keys()))
 rate = st.sidebar.selectbox(
     "Select Speed", list(speed_map.keys()), index=list(speed_map.keys()).index("Normal")
 )
-# Browser Voice Selection
+# Browser voice options (for local browser-based playback if used)
 browser_voice_options = {
     "English": "Microsoft Mark - English (United States)",
-    "Telugu": "Microsoft Telugu Voice"  # Adjust if needed, as local voices vary
+    "Kannada": "Microsoft Kannada Voice",
+    "Telugu": "Microsoft Telugu Voice"
 }
 default_browser_voice = browser_voice_options.get("English" if voice.startswith("English") else "Telugu", "")
 browser_voice = st.sidebar.text_input("Browser Voice Name (for Read Aloud)", value=default_browser_voice)
