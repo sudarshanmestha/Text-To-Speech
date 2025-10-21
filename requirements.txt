@@ -11,4 +11,4 @@ striprtf
 langdetect
 streamlit-lottie
 nest_asyncio
-charset-normalizer
+charset-normalizer==3.4.4
