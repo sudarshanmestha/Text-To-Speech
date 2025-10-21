@@ -1,12 +1,14 @@
-streamlit>=1.24.0
+streamlit
 edge-tts
+aiohttp
+certifi
 pydub
-audioop-lts
-streamlit-lottie
 python-docx
 mammoth
 markdown
 PyPDF2
 striprtf
 langdetect
+streamlit-lottie
 nest_asyncio
+charset-normalizer

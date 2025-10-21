@@ -16,6 +16,11 @@ from langdetect import detect, LangDetectException
 import base64
 import nest_asyncio
 from pydub import AudioSegment
+import aiohttp  
+import ssl
+import certifi  
+
+ssl._create_default_https_context = ssl._create_unverified_context  # Temporary workaround (not recommended for production)
 
 # Apply nest_asyncio to allow nested event loops
 nest_asyncio.apply()
@@ -246,15 +251,20 @@ def clean_text(text):
     return text
 
 # Async TTS Generation for a single chunk
-async def generate_speech_chunk(text, voice, rate, output_file):
-    try:
-        communicate = edge_tts.Communicate(text=text, voice=voice, rate=rate)
-        await communicate.save(output_file)
-        return True
-    except Exception as e:
-        st.error(f"❌ Failed to generate audio chunk: {str(e)}")
-        st.code(f"Voice: {voice}\nRate: {rate}\nText: {text[:200]}")
-        return False
+async def generate_speech_chunk(text, voice, rate, output_file, retries=3):
+    for attempt in range(retries):
+        try:
+            communicate = edge_tts.Communicate(text=text, voice=voice, rate=rate)
+            await communicate.save(output_file)
+            return True
+        except Exception as e:
+            if attempt < retries - 1:
+                await asyncio.sleep(3)
+                st.warning(f"⚠️ Retrying chunk ({attempt+1}/{retries}) due to: {e}")
+            else:
+                st.error(f"❌ Failed to generate audio chunk: {e}")
+                st.code(f"Voice: {voice}\nRate: {rate}\nText: {text[:200]}")
+                return False
 
 # Helper function to run async code safely in Streamlit
 def run_async(coro):
