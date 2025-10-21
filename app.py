@@ -100,12 +100,8 @@ st.markdown(
 
 # Voice and Speed Options
 voice_options = {
-    "DavisNeural - Male": "en-US-DavisNeural",
-    "MohanNeural - Male": "te-IN-MohanNeural",
-    "ShrutiNeural - Female": "te-IN-ShrutiNeural",
-    "AriaNeural - Female": "en-US-AriaNeural",
-    "SapnaNeural - Female": "kn-IN-SapnaNeural",
-    "GaganNeural - Male": "kn-IN-GaganNeural",
+    "English - Male": "en-US-DavisNeural",
+    "English - Female": "en-US-AriaNeural",
 }
 
 speed_map = {"Fast": "+25%", "Normal": "+0%", "Slow": "-25%"}
@@ -118,11 +114,10 @@ voice = st.sidebar.selectbox("Select Voice", list(voice_options.keys()))
 rate = st.sidebar.selectbox(
     "Select Speed", list(speed_map.keys()), index=list(speed_map.keys()).index("Normal")
 )
-# Browser voice options (for local browser-based playback if used)
+# Browser Voice Selection
 browser_voice_options = {
     "English": "Microsoft Mark - English (United States)",
-    "Kannada": "Microsoft Kannada Voice",
-    "Telugu": "Microsoft Telugu Voice"
+    "Telugu": "Microsoft Telugu Voice"  # Adjust if needed, as local voices vary
 }
 default_browser_voice = browser_voice_options.get("English" if voice.startswith("English") else "Telugu", "")
 browser_voice = st.sidebar.text_input("Browser Voice Name (for Read Aloud)", value=default_browser_voice)
