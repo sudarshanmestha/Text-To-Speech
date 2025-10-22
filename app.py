@@ -100,10 +100,13 @@ st.markdown(
 
 # Voice and Speed Options
 voice_options = {
-    "English - Male": "en-US-ChristopherNeural",  # Clear, natural, and emotionally expressive
-    "English - Female": "en-US-JennyNeural",      # Warm, smooth, and professional
-}
-
+    "English - Male1": "en-IN-PrabhatNeural",      # Warm, smooth, and professiona
+    "English - Male2": "en-IN-AaravNeural",  # Clear, natural, and emotionally expressive
+    "English - Male3": "en-US-DavisNeural",      # Warm, smooth, and professiona
+    "English - Female1": "en-IN-NeerjaNeural",      # Warm, smooth, and professional
+    "English - Female2": "en-GB-OliviaNeural",      # Warm, smooth, and professional
+    "English - Female3": "en-US-JennyNeural",
+}  
 speed_map = {"Fast": "+25%", "Normal": "+0%", "Slow": "-25%"}
 rate_map = {"Fast": 1.25, "Normal": 1.0, "Slow": 0.75}
 
