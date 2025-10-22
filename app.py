@@ -100,8 +100,8 @@ st.markdown(
 
 # Voice and Speed Options
 voice_options = {
-    "ChatGPT Voice- male": "en-US-ValeNeural",  # Replace with your preferred ChatGPT voice
-    "English - Female": "en-US-AriaNeural",
+    "English - Male": "en-US-ChristopherNeural",  # Clear, natural, and emotionally expressive
+    "English - Female": "en-US-JennyNeural",      # Warm, smooth, and professional
 }
 
 speed_map = {"Fast": "+25%", "Normal": "+0%", "Slow": "-25%"}
